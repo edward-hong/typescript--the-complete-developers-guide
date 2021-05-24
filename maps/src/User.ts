@@ -1,6 +1,6 @@
 import faker from 'faker'
 
-class User {
+export class User {
   constructor() {
     this.name = faker.name.firstName()
     this.location = {

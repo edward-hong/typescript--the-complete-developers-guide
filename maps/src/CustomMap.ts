@@ -1,6 +1,15 @@
 import { User } from './User'
 import { Company } from './Company'
 
+// Instructions to every other class
+// on how they can be an argument to 'addMarker'
+interface Mappable {
+  location: {
+    lat: number
+    lng: number
+  }
+}
+
 export class CustomMap {
   constructor(divId: string) {
     this.googleMap = new google.maps.Map(document.getElementById(divId), {
@@ -14,7 +23,7 @@ export class CustomMap {
 
   private googleMap: google.maps.Map
 
-  addMarker(mappable: User | Company): void {
+  addMarker(mappable: Mappable): void {
     new google.maps.Marker({
       map: this.googleMap,
       position: {

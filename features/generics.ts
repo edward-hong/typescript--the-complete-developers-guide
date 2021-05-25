@@ -21,3 +21,5 @@ class ArrayOfAnything<T> {
     return this.collection[index]
   }
 }
+
+const arr = new ArrayOfAnything(['a', 'b', 'c'])

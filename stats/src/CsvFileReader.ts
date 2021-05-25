@@ -4,12 +4,12 @@ import { MatchResult } from './MatchResult'
 
 type MatchData = [Date, string, string, number, number, MatchResult, string]
 
-export abstract class CsvFileReader {
+export abstract class CsvFileReader<T> {
   constructor(public filename: string) {}
 
-  abstract mapRow(row: string[]): MatchData
+  abstract mapRow(row: string[]): T
 
-  data: MatchData[] = []
+  data: T[] = []
 
   read(): void {
     this.data = fs

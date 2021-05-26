@@ -11,7 +11,7 @@ interface UserProps {
 export class User {
   constructor(private data: UserProps) {}
 
-  events: Eventing = new Eventing()
+  public events: Eventing = new Eventing()
 
   get(propName: string): number | string {
     return this.data[propName]

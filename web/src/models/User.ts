@@ -8,6 +8,8 @@ type Callback = () => {}
 export class User {
   constructor(private data: UserProps) {}
 
+  events: { [key: string]: Callback[] } = {}
+
   get(propName: string): number | string {
     return this.data[propName]
   }

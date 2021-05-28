@@ -18,7 +18,7 @@ export class User {
   public events: Eventing = new Eventing()
   public sync: Sync<UserProps> = new Sync<UserProps>(rootUrl)
   public attributes: Attributes<UserProps>
- 
+
   get on() {
     return this.events.on
   }
@@ -29,5 +29,10 @@ export class User {
 
   get get() {
     return this.attributes.get
+  }
+
+  set(update: UserProps): void {
+    this.attributes.set(update)
+    this.events.trigger('change')
   }
 }

@@ -18,4 +18,16 @@ export class User {
   public events: Eventing = new Eventing()
   public sync: Sync<UserProps> = new Sync<UserProps>(rootUrl)
   public attributes: Attributes<UserProps>
+ 
+  get on() {
+    return this.events.on
+  }
+
+  get trigger() {
+    return this.events.trigger
+  }
+
+  get get() {
+    return this.attributes.get
+  }
 }

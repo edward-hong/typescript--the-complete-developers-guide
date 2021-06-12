@@ -1,8 +1,9 @@
 class Boat {
+  @testDecorator
   color: string = 'red'
 
   get formattedColor(): string {
-    return `This boats colo is ${this.color}`
+    return `This boats color is ${this.color}`
   }
 
   @logError('Oops boat was sunk in ocean')
@@ -10,6 +11,11 @@ class Boat {
     throw new Error()
     console.log('swish')
   }
+}
+
+function testDecorator(target: any, key: string) {
+  console.log(target)
+  console.log(key)
 }
 
 function logError(errorMessage: string) {
@@ -25,5 +31,3 @@ function logError(errorMessage: string) {
     }
   }
 }
-
-new Boat().pilot()
